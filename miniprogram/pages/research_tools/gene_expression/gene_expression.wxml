@@ -1,0 +1,6 @@
+<!--pages/research_tools/gene_expression/gene_expression.wxml-->
+<view class="container">
+  <text class="page-placeholder-text">基因表达分析 功能开发中...</text>
+  <!-- Add specific UI elements for gene expression analysis here -->
+  <!-- e.g., file upload, parameter inputs, result display area -->
+</view>

@@ -1,0 +1,132 @@
+/* pages/clinical_decision/clinical_decision.wxss */
+page {
+  background-color: #F8F8F8; /* Light background for form pages */
+  padding-bottom: 140rpx; /* Space for submit button if it were fixed at bottom */
+}
+
+.container {
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.form-title {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+
+.form-subtitle {
+  font-size: 28rpx;
+  color: #777;
+  text-align: center;
+  margin-bottom: 50rpx;
+}
+
+.form-group {
+  margin-bottom: 30rpx;
+  background-color: #FFFFFF;
+  padding: 25rpx 30rpx;
+  border-radius: 15rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+}
+
+.form-label {
+  font-size: 30rpx;
+  color: #333333;
+  margin-bottom: 15rpx;
+  display: block;
+}
+
+.form-input,
+.picker {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1rpx solid #E0E0E0;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  background-color: #FDFDFD;
+}
+
+.picker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #555; /* Default picker text color */
+}
+
+.picker-arrow {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap; /* Allow radios to wrap if too many */
+}
+
+.radio-label {
+  font-size: 28rpx;
+  color: #555;
+  margin-right: 40rpx;
+  display: flex;
+  align-items: center;
+  line-height: 60rpx; /* Adjust for better vertical alignment with radio */
+}
+
+.radio-label radio {
+  margin-right: 10rpx;
+  transform: scale(0.9); /* Slightly smaller radio buttons */
+}
+
+.submit-button {
+  background-color: #1296db; /* Theme color */
+  color: white;
+  font-size: 32rpx;
+  border-radius: 15rpx;
+  padding: 25rpx;
+  text-align: center;
+  margin-top: 50rpx;
+  border: none;
+}
+
+.submit-button[disabled] {
+  background-color: #A0A0A0;
+  color: #E0E0E0;
+}
+
+.loading-indicator {
+  text-align: center;
+  color: #888;
+  font-size: 24rpx;
+  padding: 40rpx 0;
+}
+
+.result-section {
+  margin-top: 50rpx;
+  background-color: #FFFFFF;
+  padding: 30rpx;
+  border-radius: 15rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+}
+
+.result-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #EEE;
+  padding-bottom: 20rpx;
+}
+
+.result-content {
+  font-size: 28rpx;
+  color: #555;
+  line-height: 1.6;
+  white-space: pre-wrap; /* Preserve whitespace and newlines from AI response */
+}

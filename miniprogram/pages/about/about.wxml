@@ -1,0 +1,28 @@
+<!--pages/about/about.wxml-->
+<view class="container">
+  <view class="logo-section">
+    <image class="platform-logo" src="/images/icons/platform_logo_large.png"></image> <!-- Add your platform logo -->
+    <text class="platform-name">GIST研究平台</text>
+    <text class="platform-version">版本 1.0.0</text>
+  </view>
+
+  <view class="content-section">
+    <view class="section-title">平台简介</view>
+    <text class="section-text" selectable="true">GIST研究平台是专为胃肠道间质瘤研究和临床医生设计的智能辅助系统。平台整合了先进的人工智能技术、临床诊疗指南和专业研究工具，为GIST的研究和治疗提供全面支持。</text>
+  </view>
+
+  <view class="content-section">
+    <view class="section-title">团队成员</view>
+    <text class="section-text" selectable="true">本平台由多学科团队联合开发，包括肿瘤学专家、生物信息学家、人工智能工程师和临床医生，致力于推动GIST领域的研究与发展。</text>
+    <!-- You can list team members or add more details here -->
+  </view>
+
+  <view class="content-section">
+    <view class="section-title">联系我们</view>
+    <text class="section-text" selectable="true">如有任何问题或建议，请联系我们：contact@gistplatform.example.com</text> <!-- Replace with actual contact info -->
+  </view>
+
+  <view class="footer">
+    <text class="footer-text">© 2024 GIST研究平台. 保留所有权利.</text>
+  </view>
+</view>

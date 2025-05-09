@@ -1,0 +1,5 @@
+<!--pages/research_tools/data_visualization/data_visualization.wxml-->
+<view class="container">
+  <text class="page-placeholder-text">数据可视化 功能开发中...</text>
+  <!-- Add specific UI elements for data visualization here -->
+</view>

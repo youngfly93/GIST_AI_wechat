@@ -1,0 +1,5 @@
+<!--pages/research_tools/pathway_analysis/pathway_analysis.wxml-->
+<view class="container">
+  <text class="page-placeholder-text">通路富集分析 功能开发中...</text>
+  <!-- Add specific UI elements for pathway analysis here -->
+</view>

@@ -1,0 +1,22 @@
+<!--miniprogram/pages/ai_chat/ai_chat.wxml-->
+<view class="chat-container">
+  <scroll-view scroll-y="true" class="chat-messages" scroll-into-view="{{scrollToMessageId}}" scroll-with-animation="true">
+    <block wx:for="{{messages}}" wx:key="id">
+      <view id="msg-{{item.id}}" class="message-item {{item.role}}">
+        <image wx:if="{{item.role === 'assistant'}}" class="avatar assistant-avatar" src="/images/icons/ai_avatar.png"></image>
+        <view class="message-content">
+          <text selectable="true">{{item.content}}</text>
+        </view>
+        <image wx:if="{{item.role === 'user'}}" class="avatar user-avatar" src="/images/icons/user_avatar.png"></image>
+      </view>
+    </block>
+    <view wx:if="{{isLoading}}" class="loading-indicator">
+      <text>AI正在思考中...</text>
+    </view>
+  </scroll-view>
+
+  <view class="input-area">
+    <textarea class="input-field" value="{{inputValue}}" placeholder="请输入您关于GIST的问题..." auto-height="true" cursor-spacing="20" maxlength="1000" bindinput="onInput" confirm-type="send" bindconfirm="onSend"></textarea>
+    <button class="send-button" bindtap="onSend" disabled="{{isLoading || !inputValue.trim()}}">发送</button>
+  </view>
+</view> 

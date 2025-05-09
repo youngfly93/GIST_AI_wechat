@@ -1,0 +1,111 @@
+/* miniprogram/pages/ai_chat/ai_chat.wxss */
+page {
+  height: 100%;
+  background-color: #F4F4F4; /* Softer background for chat */
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 20rpx;
+  padding-bottom: calc(120rpx + env(safe-area-inset-bottom)); /* Adjust for input area and safe area */
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.message-item {
+  display: flex;
+  margin-bottom: 30rpx;
+  align-items: flex-start; /* Align avatar with top of message bubble */
+}
+
+.message-item.user {
+  justify-content: flex-end;
+}
+
+.message-item.assistant {
+  justify-content: flex-start;
+}
+
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin: 0 20rpx;
+}
+
+.message-content {
+  background-color: #FFFFFF; /* User messages */
+  padding: 20rpx 30rpx;
+  border-radius: 15rpx;
+  max-width: calc(100% - 160rpx - 40rpx); /* Max width considering avatars and margins */
+  word-wrap: break-word;
+  font-size: 28rpx;
+  line-height: 1.5;
+  box-shadow: 0 2rpx 5rpx rgba(0,0,0,0.05);
+}
+
+.message-item.assistant .message-content {
+  background-color: #DCF8C6; /* Assistant messages, a common chat app color */
+  /* Or use a blue color like in the mockup: */
+  /* background-color: #CDEEFF; */ 
+}
+
+.loading-indicator {
+  text-align: center;
+  color: #888;
+  font-size: 24rpx;
+  padding: 20rpx;
+}
+
+.input-area {
+  display: flex;
+  align-items: flex-end; /* Align items to bottom for auto-height textarea */
+  padding: 20rpx;
+  background-color: #F9F9F9;
+  border-top: 1rpx solid #E0E0E0;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom)); /* Safe area for bottom */
+  position: fixed; /* Fixed at the bottom */
+  bottom: 0;
+  left: 0;
+}
+
+.input-field {
+  flex: 1;
+  min-height: 70rpx; /* Initial height */
+  max-height: 200rpx; /* Max height before scrolling within textarea */
+  padding: 15rpx 20rpx;
+  border: 1rpx solid #D3D3D3;
+  border-radius: 10rpx;
+  background-color: #FFFFFF;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+  box-sizing: border-box;
+}
+
+.send-button {
+  background-color: #1296db; /* Theme color */
+  color: white;
+  border: none;
+  border-radius: 10rpx;
+  padding: 0 30rpx;
+  height: 70rpx; /* Match initial input field height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  white-space: nowrap;
+}
+
+.send-button[disabled] {
+  background-color: #A0A0A0;
+  color: #E0E0E0;
+} 

@@ -1,0 +1,42 @@
+<!--miniprogram/pages/home/home.wxml-->
+<view class="container">
+  <!-- New Banner Block -->
+  <view class="banner-block">
+    <view class="logo-section">
+      <image class="platform-logo" src="/images/gist_platform_banner.png" mode="widthFix" bindtap="previewBannerImage"></image>
+    </view>
+    <view class="hero-section">
+      <text class="hero-title">胃肠道间质瘤研究平台</text>
+      <text class="hero-subtitle">为GIST研究与治疗提供专业智能支持</text>
+    </view>
+  </view>
+
+  <view class="features-grid">
+    <navigator url="/pages/ai_chat/ai_chat" class="feature-item" hover-class="feature-item-hover" open-type="switchTab">
+      <image class="feature-icon" src="/images/icons/ai_assistant_large.png"></image>
+      <text class="feature-name">AI智能助手</text>
+      <text class="feature-description">解答复杂科研问题</text>
+    </navigator>
+    <navigator url="/pages/clinical_decision/clinical_decision" class="feature-item" hover-class="feature-item-hover" open-type="switchTab">
+      <image class="feature-icon" src="/images/icons/clinical_aid_large.png"></image>
+      <text class="feature-name">临床辅助</text>
+      <text class="feature-description">诊断和治疗建议</text>
+    </navigator>
+    <navigator url="/pages/research_main/research_main" class="feature-item" hover-class="feature-item-hover" open-type="switchTab">
+      <image class="feature-icon" src="/images/icons/research_tools_large.png"></image>
+      <text class="feature-name">研究工具</text>
+      <text class="feature-description">数据分析与可视化</text>
+    </navigator>
+    <navigator url="/pages/about/about" class="feature-item" hover-class="feature-item-hover">
+      <image class="feature-icon" src="/images/icons/literature_large.png"></image> <!-- Using literature icon as placeholder -->
+      <text class="feature-name">文献库/关于</text>
+      <text class="feature-description">专业GIST研究资料</text>
+    </navigator>
+  </view>
+
+  <!-- Add a section for 最新动态 if needed -->
+  <!-- <view class="latest-updates">
+    <text class="section-title">最新动态</text>
+    <view class="update-item">...动态内容...</view>
+  </view> -->
+</view> 

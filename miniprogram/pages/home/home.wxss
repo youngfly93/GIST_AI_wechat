@@ -1,0 +1,145 @@
+/* pages/home/home.wxss */
+page {
+  background-color: #FFFFFF; /* White background for home page */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0; /* Removed top padding */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* New Banner Block Styles */
+.banner-block {
+  width: 100%;
+  background-color: #4A90E2; /* Blue background */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontal centering of content */
+  justify-content: center; /* Vertical centering of content */
+  min-height: 45vh; /* Takes up 45% of viewport height, adjust as needed */
+  padding: 30rpx 20rpx; /* Overall padding for the blue block */
+  box-sizing: border-box;
+}
+
+/* Adjusted logo section */
+.logo-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* Removed previous padding */
+  margin-bottom: 20rpx; /* Space between logo and title */
+  /* background-color removed */
+}
+
+.platform-logo {
+  width: 90%;
+  max-width: 720rpx;
+}
+
+/* Adjusted hero section */
+.hero-section {
+  width: 100%;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20rpx; /* Adjusted padding */
+  text-align: center;
+  /* background-color removed */
+  /* box-sizing removed, handled by banner-block */
+}
+
+.hero-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.hero-subtitle {
+  font-size: 28rpx;
+  opacity: 0.9;
+  color: #ffffff;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 40rpx 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.feature-item {
+  width: 45%; /* Two items per row with some spacing */
+  background-color: #F8F8F8; /* Light grey background for items */
+  border-radius: 20rpx;
+  padding: 40rpx 20rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.08);
+  box-sizing: border-box;
+  position: relative; /* Added for z-index to potentially work */
+  z-index: 1; /* Added a basic z-index */
+}
+
+.feature-item-hover {
+  opacity: 0.7; /* Simple hover effect */
+  background-color: #e0e0e0; /* Slightly darker background on hover */
+}
+
+.feature-icon {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.feature-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 10rpx;
+}
+
+.feature-description {
+  font-size: 24rpx;
+  color: #777777;
+}
+
+/* Styling for Latest Updates section (optional) */
+.latest-updates {
+  width: 100%;
+  padding: 40rpx;
+  background-color: #FFFFFF;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 30rpx;
+  text-align: left;
+}
+
+.update-item {
+  /* Style for individual update items */
+  font-size: 28rpx;
+  color: #555555;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #EEEEEE;
+}
+
+.update-item:last-child {
+  border-bottom: none;
+}

@@ -1,0 +1,14 @@
+/* pages/research_tools/pathway_analysis/pathway_analysis.wxss */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.page-placeholder-text {
+  font-size: 32rpx;
+  color: #888;
+}

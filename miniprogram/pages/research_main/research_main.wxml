@@ -1,0 +1,27 @@
+<!--pages/research_main/research_main.wxml-->
+<view class="container">
+  <view class="page-title">研究工具箱</view>
+  <view class="tool-grid">
+    <navigator url="/pages/research_tools/gene_expression/gene_expression" class="tool-item">
+      <image class="tool-icon" src="/images/icons/gene_expression.png"></image>
+      <text class="tool-name">基因表达分析</text>
+      <text class="tool-description">分析GIST样本基因表达谱</text>
+    </navigator>
+    <navigator url="/pages/research_tools/data_visualization/data_visualization" class="tool-item">
+      <image class="tool-icon" src="/images/icons/data_visualization.png"></image>
+      <text class="tool-name">数据可视化</text>
+      <text class="tool-description">创建专业图表和热图</text>
+    </navigator>
+    <navigator url="/pages/research_tools/pathway_analysis/pathway_analysis" class="tool-item">
+      <image class="tool-icon" src="/images/icons/pathway_analysis.png"></image>
+      <text class="tool-name">通路富集分析</text>
+      <text class="tool-description">识别显著生物学通路</text>
+    </navigator>
+    <navigator url="/pages/research_tools/literature_search/literature_search" class="tool-item">
+      <image class="tool-icon" src="/images/icons/literature_search.png"></image>
+      <text class="tool-name">文献检索</text>
+      <text class="tool-description">智能检索GIST相关文献</text>
+    </navigator>
+    <!-- Add more tools as needed -->
+  </view>
+</view>

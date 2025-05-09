@@ -1,0 +1,67 @@
+/* pages/about/about.wxss */
+page {
+  background-color: #FFFFFF; /* White background for about page */
+}
+
+.container {
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  color: #333333;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+
+.platform-logo {
+  width: 180rpx;
+  height: 180rpx;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx; /* Optional: if your logo looks good with rounded corners */
+}
+
+.platform-name {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.platform-version {
+  font-size: 28rpx;
+  color: #888888;
+}
+
+.content-section {
+  margin-bottom: 50rpx;
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: 600; /* Semi-bold */
+  color: #1296db; /* Theme color for titles */
+  margin-bottom: 20rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 2rpx solid #EFEFEF;
+}
+
+.section-text {
+  font-size: 28rpx;
+  line-height: 1.7;
+  color: #555555;
+  display: block; /* To ensure text takes full width */
+}
+
+.footer {
+  text-align: center;
+  margin-top: 80rpx;
+  padding-top: 40rpx;
+  border-top: 1rpx solid #F0F0F0;
+}
+
+.footer-text {
+  font-size: 24rpx;
+  color: #AAAAAA;
+}

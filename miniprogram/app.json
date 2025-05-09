@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/ai_chat/ai_chat",
+    "pages/clinical_decision/clinical_decision",
+    "pages/research_main/research_main",
+    "pages/research_tools/gene_expression/gene_expression",
+    "pages/research_tools/data_visualization/data_visualization",
+    "pages/research_tools/pathway_analysis/pathway_analysis",
+    "pages/research_tools/literature_search/literature_search",
+    "pages/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "集思特GIST研究平台",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#f2f2f2",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/icons/home.png",
+        "selectedIconPath": "images/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/ai_chat/ai_chat",
+        "text": "AI助手",
+        "iconPath": "images/icons/home.png",
+        "selectedIconPath": "images/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/clinical_decision/clinical_decision",
+        "text": "临床",
+        "iconPath": "images/icons/business.png",
+        "selectedIconPath": "images/icons/business-active.png"
+      },
+      {
+        "pagePath": "pages/research_main/research_main",
+        "text": "研究",
+        "iconPath": "images/icons/examples.png",
+        "selectedIconPath": "images/icons/examples-active.png"
+      }
+    ]
+      },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
