@@ -52,11 +52,24 @@ export async function getGISTResearchAnalysis(query, researchType) {
 
 /**
  * Generate clinical recommendations based on patient data
- * @param {string} patientData - Clinical data of the patient
+ * @param {string} patientData - Clinical data of the patient in JSON format
  * @returns {Promise<object>} Promise with the AI response containing clinical recommendations
  */
 export async function getClinicalRecommendations(patientData) {
   // The cloud function aiProxy uses the 'recommendations' aiRole for this.
-  const queryContent = `Please analyze the following patient data and provide clinical recommendations for GIST: ${patientData}`;
-  return getAIResponse([{ role: 'user', content: queryContent }], 'recommendations');
+  const queryContent = `请基于以下GIST患者数据，提供临床风险评估和治疗建议：\n\n${patientData}`;
+  
+  // 添加分析提示，指导AI如何处理数据
+  const analysisPrompt = `
+请根据NIH 2020修订版风险分级标准，分析以上患者数据，并提供：
+1. 风险等级评估
+2. 术后辅助治疗建议
+3. 随访监测计划
+4. 特殊注意事项（如有）
+
+请注意患者的肿瘤位置、大小、有丝分裂数和基因突变类型，特别关注PDGFRA D842V突变的伊马替尼耐药性。`;
+
+  const fullQuery = queryContent + analysisPrompt;
+  
+  return getAIResponse([{ role: 'user', content: fullQuery }], 'recommendations');
 }

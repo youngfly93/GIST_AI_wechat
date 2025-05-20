@@ -7,11 +7,11 @@
       <text class="tool-name">基因表达分析</text>
       <text class="tool-description">分析GIST样本基因表达谱</text>
     </navigator>
-    <navigator url="/pages/research_tools/data_visualization/data_visualization" class="tool-item">
+    <view class="tool-item" bindtap="navigateToExternalTool" data-url="http://117.72.75.45/dbGIST_shiny/">
       <image class="tool-icon" src="/images/icons/data_visualization.png"></image>
       <text class="tool-name">数据可视化</text>
-      <text class="tool-description">创建专业图表和热图</text>
-    </navigator>
+      <text class="tool-description">访问外部 Shiny 可视化工具</text>
+    </view>
     <navigator url="/pages/research_tools/pathway_analysis/pathway_analysis" class="tool-item">
       <image class="tool-icon" src="/images/icons/pathway_analysis.png"></image>
       <text class="tool-name">通路富集分析</text>

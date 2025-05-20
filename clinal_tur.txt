@@ -1,0 +1,128 @@
+1. 肿瘤位置（tumor_site）
+数据结构（示例 JSON）：
+
+json
+复制
+编辑
+[
+  { "code": "ST", "label": "胃", "children": [
+      { "code": "ST_GEJ", "label": "贲门/食管-胃交界" },
+      { "code": "ST_BODY", "label": "胃体/胃底" },
+      { "code": "ST_ANT", "label": "胃窦/幽门" }
+  ]},
+  { "code": "SI", "label": "小肠", "children": [
+      { "code": "DU", "label": "十二指肠" },
+      { "code": "JE", "label": "空肠" },
+      { "code": "IL", "label": "回肠" }
+  ]},
+  { "code": "CR", "label": "结直肠", "children": [
+      { "code": "CO", "label": "结肠" },
+      { "code": "RE", "label": "直肠" }
+  ]},
+  { "code": "ES", "label": "食管" },
+  { "code": "AP", "label": "阑尾" },
+  { "code": "OT", "label": "其他消化道" },
+  { "code": "EGIST", "label": "胃肠外/EGIST", "children": [
+      { "code": "MES", "label": "肠系膜" },
+      { "code": "OM",  "label": "网膜" },
+      { "code": "PER", "label": "腹膜/盆腔" },
+      { "code": "RETRO", "label": "腹膜后" }
+  ]},
+  { "code": "UNK", "label": "待确定" }
+]
+交互要点：
+
+前端呈现为两级级联下拉（一级足够时隐藏二级）。
+
+选定部位后，把 code 送往后端；后端根据部位权重化处理风险矩阵。
+
+能力扩展：表里留 parent_code 字段，后续好在数据库层面维护。
+
+2. 肿瘤大小（tumor_size_cm + size_category）
+分档	上限（cm）	size_category
+≤2	2	S1
+>2–5	5	S2
+>5–10	10	S3
+>10	∞	S4
+
+前端交互：
+
+输入框接受数字 + 自动识别 mm / cm（正则 (\d+(\.\d+)?)(mm|cm)?，缺省 cm）。
+
+实时在右侧/下方展示其分档（S1-S4）；若超过 10 cm，红色高亮。
+
+“未知”情况允许勾选 size_missing，置灰输入框，同时记为 null。
+
+后端使用：
+
+接收 tumor_size_cm（小数），即时生成/校验 size_category；写死在配置表，不在代码里硬编码。
+
+3. 有丝分裂数（mitotic_rate_per_50hpf + mitotic_category）
+分档	上限 (/50 HPF)	mitotic_category
+≤5	5	M1
+6–10	10	M2
+>10	∞	M3
+
+补充：
+
+病理报告若使用 “/5 mm²” 单位，前端加一个单位选择；选择后调用系数 ≈1.6 自动换算，并显示“已折算为 x/50 HPF”。
+
+与大小字段同理，允许 mitotic_missing 标记。
+
+4. 基因突变类型（mutation_type）
+推荐枚举：
+
+分类	取值	备注
+KIT	KIT_E11 KIT_E9 KIT_E13_14 KIT_E17	可根据部位做默认排序（胃优先 E11；小肠优先 E9）
+PDGFRA	PDGFRA_D842V PDGFRA_NON_D842V PDGFRA_E12	D842V 对伊马替尼耐药，需提示
+其他	SDH_DEF NF1_ASSOC BRAF_V600E RAS	
+未检出	WILD	“四阴性”
+未检测 / 待补录	NA	
+
+交互：
+
+下拉支持搜索；也可按“驱动基因 → 外显子”两级展开。
+
+当 mutation_type 不匹配已选部位的常见型（如小肠+PDGFRA），前端提示“罕见组合，建议复核病理/分子检测”。
+
+5. 风险计算与决策引擎接口
+mermaid
+复制
+编辑
+graph TD
+  FrontEnd -- JSON payload --> RiskAPI[/POST /risk/compute/]
+  RiskAPI -->|lookup| RiskMatrix[(NIH2020 表)]
+  RiskAPI -->|lookup| GeneDrugMap[(Gene ↔ Drug table)]
+  RiskAPI --> RiskScore{Risk Level}
+  RiskScore -->|return| FrontEnd
+输入示例
+
+json
+复制
+编辑
+{
+  "tumor_site": "ST_BODY",
+  "tumor_size_cm": 3.0,
+  "size_category": "S2",
+  "mitotic_rate_per_50hpf": 1,
+  "mitotic_category": "M1",
+  "mutation_type": "KIT_E11",
+  "metastasis": false
+}
+输出示例
+
+json
+复制
+编辑
+{
+  "risk_level": "低-中度",
+  "guideline": "NIH 2020 modified",
+  "adjuvant_imatinib": {
+    "recommend": false,
+    "note": "大小≤5 cm 且分裂数≤5，建议术后随访，每 3–6 个月复查 CT。"
+  },
+  "clinical_flags": [
+    "需定期胃镜 + CT 监测",
+    "若 Kit Ex11 deletion Δ557-558, 复发风险偏高"
+  ]
+}

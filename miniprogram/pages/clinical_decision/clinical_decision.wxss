@@ -1,97 +1,100 @@
 /* pages/clinical_decision/clinical_decision.wxss */
 page {
-  background-color: #F8F8F8; /* Light background for form pages */
-  padding-bottom: 140rpx; /* Space for submit button if it were fixed at bottom */
+  background-color: #F6F6F6;
 }
 
 .container {
   padding: 30rpx;
+  min-height: 100vh;
   box-sizing: border-box;
 }
 
 .form-title {
-  font-size: 44rpx;
+  font-size: 36rpx;
   font-weight: bold;
-  color: #333;
   text-align: center;
   margin-bottom: 10rpx;
+  color: #333;
 }
 
 .form-subtitle {
-  font-size: 28rpx;
-  color: #777;
+  font-size: 26rpx;
   text-align: center;
-  margin-bottom: 50rpx;
+  margin-bottom: 40rpx;
+  color: #666;
 }
 
 .form-group {
-  margin-bottom: 30rpx;
   background-color: #FFFFFF;
-  padding: 25rpx 30rpx;
-  border-radius: 15rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
 .form-label {
-  font-size: 30rpx;
-  color: #333333;
-  margin-bottom: 15rpx;
-  display: block;
+  font-size: 28rpx;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+  color: #333;
 }
 
-.form-input,
-.picker {
-  width: 100%;
+.form-input {
   height: 80rpx;
-  line-height: 80rpx;
   border: 1rpx solid #E0E0E0;
-  border-radius: 10rpx;
+  border-radius: 8rpx;
   padding: 0 20rpx;
   font-size: 28rpx;
+  width: 100%;
   box-sizing: border-box;
-  background-color: #FDFDFD;
 }
 
 .picker {
+  height: 80rpx;
+  border: 1rpx solid #E0E0E0;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  color: #555; /* Default picker text color */
+  justify-content: space-between;
+  position: relative;
+  background-color: #FFFFFF;
 }
 
 .picker-arrow {
-  width: 30rpx;
-  height: 30rpx;
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right: 20rpx;
 }
 
 .radio-group {
   display: flex;
-  flex-wrap: wrap; /* Allow radios to wrap if too many */
+  flex-direction: row;
+  align-items: center;
 }
 
 .radio-label {
-  font-size: 28rpx;
-  color: #555;
-  margin-right: 40rpx;
+  margin-right: 50rpx;
   display: flex;
   align-items: center;
-  line-height: 60rpx; /* Adjust for better vertical alignment with radio */
-}
-
-.radio-label radio {
-  margin-right: 10rpx;
-  transform: scale(0.9); /* Slightly smaller radio buttons */
+  font-size: 28rpx;
 }
 
 .submit-button {
   background-color: #1296db; /* Theme color */
   color: white;
-  font-size: 32rpx;
-  border-radius: 15rpx;
-  padding: 25rpx;
-  text-align: center;
-  margin-top: 50rpx;
-  border: none;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-top: 40rpx;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
 }
 
 .submit-button[disabled] {
@@ -101,32 +104,58 @@ page {
 
 .loading-indicator {
   text-align: center;
-  color: #888;
-  font-size: 24rpx;
-  padding: 40rpx 0;
+  margin-top: 40rpx;
+  color: #666;
+  font-size: 28rpx;
 }
 
 .result-section {
-  margin-top: 50rpx;
   background-color: #FFFFFF;
+  border-radius: 12rpx;
   padding: 30rpx;
-  border-radius: 15rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+  margin-top: 40rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
 }
 
 .result-title {
   font-size: 32rpx;
   font-weight: bold;
-  color: #333;
   margin-bottom: 20rpx;
-  text-align: center;
-  border-bottom: 1rpx solid #EEE;
-  padding-bottom: 20rpx;
+  color: #333;
+  border-bottom: 1rpx solid #EEEEEE;
+  padding-bottom: 15rpx;
 }
 
 .result-content {
   font-size: 28rpx;
-  color: #555;
   line-height: 1.6;
-  white-space: pre-wrap; /* Preserve whitespace and newlines from AI response */
+  color: #333;
+}
+
+/* 新增样式 */
+.category-tag {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 10rpx;
+  padding: 6rpx 12rpx;
+  background-color: #F0F0F0;
+  border-radius: 6rpx;
+  display: inline-block;
+}
+
+.high-risk-tag {
+  color: #FF4D4F;
+  font-weight: 500;
+  margin-left: 10rpx;
+}
+
+.warning-tag {
+  font-size: 24rpx;
+  color: #FF4D4F;
+  margin-top: 10rpx;
+  padding: 6rpx 12rpx;
+  background-color: #FFF1F0;
+  border-radius: 6rpx;
+  border: 1rpx solid #FFCCC7;
+  display: inline-block;
 }

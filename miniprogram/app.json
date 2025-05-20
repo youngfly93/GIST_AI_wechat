@@ -8,6 +8,7 @@
     "pages/research_tools/data_visualization/data_visualization",
     "pages/research_tools/pathway_analysis/pathway_analysis",
     "pages/research_tools/literature_search/literature_search",
+    "pages/external_webview/external_webview",
     "pages/about/about"
   ],
   "window": {

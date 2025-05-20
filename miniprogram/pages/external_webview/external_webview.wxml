@@ -1,0 +1,2 @@
+<!--miniprogram/pages/external_webview/external_webview.wxml-->
+<web-view src="{{externalUrl}}"></web-view> 

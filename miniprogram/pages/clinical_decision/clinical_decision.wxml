@@ -6,9 +6,17 @@
   <form bindsubmit="onSubmitForm">
     <view class="form-group">
       <view class="form-label">肿瘤位置</view>
-      <picker bindchange="bindPickerChange" value="{{tumorLocationIndex}}" range="{{tumorLocationOptions}}" name="tumorLocation">
+      <picker bindchange="onPrimarySiteChange" value="{{primarySiteIndex}}" range="{{primarySiteOptions}}" name="primarySite">
         <view class="picker">
-          {{tumorLocationOptions[tumorLocationIndex] || '请选择肿瘤位置'}}
+          {{primarySiteOptions[primarySiteIndex] || '请选择肿瘤位置'}}
+          <image class="picker-arrow" src="/images/icons/arrow_down.png"></image>
+        </view>
+      </picker>
+      
+      <!-- 二级位置选择，仅在需要时显示 -->
+      <picker wx:if="{{showSecondarySite}}" bindchange="onSecondarySiteChange" value="{{secondarySiteIndex}}" range="{{secondarySiteOptions}}" name="secondarySite" style="margin-top: 10rpx;">
+        <view class="picker">
+          {{secondarySiteOptions[secondarySiteIndex] || '请选择具体位置'}}
           <image class="picker-arrow" src="/images/icons/arrow_down.png"></image>
         </view>
       </picker>
@@ -16,29 +24,44 @@
 
     <view class="form-group">
       <view class="form-label">肿瘤大小 (cm)</view>
-      <input class="form-input" name="tumorSize" type="digit" placeholder="请输入肿瘤大小" value="{{formData.tumorSize}}" bindinput="onInputChange" data-field="tumorSize"></input>
+      <input class="form-input" name="tumorSize" type="digit" placeholder="请输入肿瘤大小" value="{{formData.tumorSize}}" bindinput="onTumorSizeInput"></input>
+      <view wx:if="{{formData.sizeCategory}}" class="category-tag">
+        分类: {{formData.sizeCategory}} 
+        <text wx:if="{{formData.sizeCategory === 'S4'}}" class="high-risk-tag">高风险</text>
+      </view>
     </view>
 
     <view class="form-group">
       <view class="form-label">有丝分裂数 (/50HPF)</view>
-      <input class="form-input" name="mitoticCount" type="number" placeholder="请输入有丝分裂数" value="{{formData.mitoticCount}}" bindinput="onInputChange" data-field="mitoticCount"></input>
+      <input class="form-input" name="mitoticRate" type="number" placeholder="请输入有丝分裂数" value="{{formData.mitoticRate}}" bindinput="onMitoticRateInput"></input>
+      <view wx:if="{{formData.mitoticCategory}}" class="category-tag">
+        分类: {{formData.mitoticCategory}}
+        <text wx:if="{{formData.mitoticCategory === 'M3'}}" class="high-risk-tag">高风险</text>
+      </view>
     </view>
 
     <view class="form-group">
       <view class="form-label">基因突变类型</view>
-      <picker bindchange="bindPickerChange" value="{{mutationTypeIndex}}" range="{{mutationTypeOptions}}" name="mutationType" data-field="mutationType">
+      <picker bindchange="onMutationTypeChange" value="{{mutationTypeIndex}}" range="{{mutationTypeOptions}}" name="mutationType">
         <view class="picker">
           {{mutationTypeOptions[mutationTypeIndex] || '请选择基因突变类型'}}
           <image class="picker-arrow" src="/images/icons/arrow_down.png"></image>
         </view>
       </picker>
+      <!-- 对于D842V突变的特殊提示 -->
+      <view wx:if="{{formData.mutationType === 'PDGFRA_D842V'}}" class="warning-tag">
+        注意: 此突变类型对伊马替尼耐药
+      </view>
     </view>
 
     <view class="form-group">
       <view class="form-label">是否有转移</view>
-      <radio-group class="radio-group" bindchange="onRadioChange" name="metastasis" data-field="metastasis">
-        <label class="radio-label" wx:for="{{metastasisOptions}}" wx:key="value">
-          <radio value="{{item.value}}" checked="{{item.value === formData.metastasis}}"/>{{item.name}}
+      <radio-group class="radio-group" bindchange="onMetastasisChange" name="metastasis">
+        <label class="radio-label">
+          <radio value="true" checked="{{formData.metastasis === true}}"/>是
+        </label>
+        <label class="radio-label">
+          <radio value="false" checked="{{formData.metastasis === false}}"/>否
         </label>
       </radio-group>
     </view>

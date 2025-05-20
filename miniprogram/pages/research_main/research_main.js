@@ -8,6 +8,15 @@ Page({
 
   },
 
+  navigateToExternalTool(event) {
+    const url = event.currentTarget.dataset.url;
+    if (url) {
+      wx.navigateTo({
+        url: `/pages/external_webview/external_webview?url=${encodeURIComponent(url)}`
+      });
+    }
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
